@@ -1,0 +1,859 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Keiyo Hotel Service Co., Ltd. - Official Website</title>
+    <style>
+        /* --- CSS VARIABLES & THEME --- */
+        :root {
+            --primary-color: #1a365d; /* Elegant Deep Blue */
+            --secondary-color: #2c7a7b; /* Clean Teal */
+            --accent-color: #d69e2e; /* Soft Gold/Warmth */
+            --text-dark: #2d3748;
+            --text-light: #f7fafc;
+            --bg-light: #f8fafc;
+            --bg-card: #ffffff;
+            --border-color: #e2e8f0;
+            --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        /* --- BASE STYLES --- */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-family);
+            color: var(--text-dark);
+            background-color: var(--bg-light);
+            line-height: 1.6;
+            font-size: 18px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        h1, h2, h3 {
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        /* --- HEADER & NAV --- */
+        header {
+            background-color: #ffffff;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            padding: 15px 0;
+        }
+
+        .header-flex {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .logo h1 {
+            font-size: 26px;
+            margin-bottom: 0;
+            color: var(--primary-color);
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--primary-color);
+            font-weight: bold;
+            margin-right: 20px;
+            font-size: 18px;
+            border-bottom: 2px solid transparent;
+            transition: all 0.3s ease;
+        }
+
+        nav a:hover {
+            border-bottom: 2px solid var(--secondary-color);
+        }
+
+        .lang-switcher button {
+            background-color: #edf2f7;
+            border: 2px solid transparent;
+            padding: 8px 16px;
+            margin-left: 5px;
+            cursor: pointer;
+            border-radius: 5px;
+            font-weight: bold;
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+
+        .lang-switcher button.active, .lang-switcher button:hover {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            background: linear-gradient(rgba(26, 54, 93, 0.85), rgba(26, 54, 93, 0.85)), 
+                        url('https://images.unsplash.com/photo-1540518614846-7eded433c457?q=80&w=2070&auto=format&fit=crop') no-repeat center/cover;
+            color: white;
+            padding: 140px 0;
+            text-align: center;
+        }
+
+        .hero h2 {
+            color: white;
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 24px;
+            margin-bottom: 40px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-btn {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: #000;
+            padding: 15px 35px;
+            font-weight: bold;
+            border-radius: 30px;
+            text-decoration: none;
+            font-size: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.3s, background-color 0.3s;
+        }
+
+        .cta-btn:hover {
+            transform: translateY(-3px);
+            background-color: #c58f26;
+        }
+
+        .badges {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+
+        .badge {
+            background-color: var(--accent-color);
+            color: #000;
+            padding: 10px 25px;
+            font-weight: bold;
+            border-radius: 30px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            font-size: 18px;
+        }
+
+        /* --- SECTION STYLES --- */
+        .section-padding {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 36px;
+            margin-bottom: 50px;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background-color: var(--secondary-color);
+            margin: 15px auto 0;
+        }
+
+        /* --- ABOUT COMPANY SECTION --- */
+        .about-section {
+            background-color: white;
+        }
+
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+
+        .about-text {
+            flex: 1;
+        }
+
+        .about-text p {
+            margin-bottom: 20px;
+            font-size: 19px;
+            color: #4a5568;
+        }
+
+        .about-image {
+            flex: 1;
+            background-image: url('https://images.unsplash.com/photo-1564507592333-c60657eea523?q=80&w=1000&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+            height: 420px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        /* --- JOB OPTIONS SECTION --- */
+        .job-section {
+            background-color: #f1f5f9;
+        }
+
+        .job-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+
+        .job-card {
+            background-color: var(--bg-card);
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: transform 0.3s ease;
+            border: 1px solid var(--border-color);
+        }
+
+        .job-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .job-img-h1 {
+            height: 220px;
+            background-image: url('https://images.unsplash.com/photo-1616594039964-ae9021a400a0?q=80&w=1000&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .job-img-h2 {
+            height: 220px;
+            background-image: url('https://images.unsplash.com/photo-1582719508461-905c673771fd?q=80&w=1000&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .job-card-content {
+            padding: 30px;
+        }
+
+        .job-card h3 {
+            font-size: 26px;
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 15px;
+            color: var(--primary-color);
+        }
+
+        .salary {
+            font-size: 30px;
+            color: var(--secondary-color);
+            font-weight: bold;
+            margin: 20px 0 10px;
+        }
+
+        .bonus-note {
+            font-size: 15px;
+            color: #718096;
+            font-style: italic;
+            margin-bottom: 25px;
+        }
+
+        .job-details ul {
+            list-style-type: none;
+            margin-bottom: 10px;
+        }
+
+        .job-details li {
+            margin-bottom: 15px;
+            padding-left: 30px;
+            position: relative;
+        }
+
+        .job-details li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--secondary-color);
+            font-weight: bold;
+            font-size: 20px;
+        }
+
+        /* --- BENEFITS & TERMS --- */
+        .benefits-section {
+            background: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)), 
+                        url('https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?q=80&w=2070&auto=format&fit=crop') no-repeat center/cover;
+            background-attachment: fixed;
+        }
+
+        .benefits-box {
+            padding: 20px 0;
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .benefit-item {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 30px;
+            border-radius: 10px;
+            border-top: 5px solid var(--accent-color);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+
+        /* --- APPLICATION FORM --- */
+        .form-section {
+            background: linear-gradient(rgba(26, 54, 93, 0.92), rgba(26, 54, 93, 0.92)),
+                        url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop') no-repeat center/cover;
+            color: white;
+        }
+
+        .form-section h2 {
+            color: white;
+        }
+
+        .app-form {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 50px;
+            border-radius: 12px;
+            color: var(--text-dark);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+        }
+
+        .form-row {
+            display: flex;
+            gap: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+            flex: 1;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid var(--border-color);
+            border-radius: 8px;
+            font-size: 16px;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus, .form-group select:focus {
+            outline: none;
+            border-color: var(--secondary-color);
+        }
+
+        .file-note {
+            font-size: 14px;
+            color: #718096;
+            margin-top: 8px;
+        }
+
+        .submit-btn {
+            display: block;
+            width: 100%;
+            background-color: var(--accent-color);
+            color: #000;
+            border: none;
+            padding: 18px;
+            font-size: 22px;
+            font-weight: bold;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+            margin-top: 40px;
+        }
+
+        .submit-btn:hover {
+            background-color: #c58f26;
+        }
+
+        /* --- FOOTER / COMPANY INFO --- */
+        footer {
+            background: linear-gradient(rgba(26, 32, 44, 0.95), rgba(26, 32, 44, 0.95)),
+                        url('https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=2069&auto=format&fit=crop') no-repeat center/cover;
+            color: #cbd5e0;
+            padding: 80px 0 30px;
+            font-size: 17px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 50px;
+            margin-bottom: 50px;
+        }
+
+        .footer-col h3 {
+            color: white;
+            margin-bottom: 25px;
+            font-size: 22px;
+            border-bottom: 2px solid #4a5568;
+            padding-bottom: 10px;
+        }
+
+        .footer-col p {
+            margin-bottom: 12px;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            border-top: 1px solid #4a5568;
+            padding-top: 30px;
+            margin-top: 30px;
+        }
+
+        /* --- RESPONSIVE DESIGN --- */
+        @media (max-width: 992px) {
+            .about-content { flex-direction: column-reverse; gap: 30px; }
+            .about-image { width: 100%; height: 300px; }
+            .form-row { flex-direction: column; gap: 0; }
+        }
+
+        @media (max-width: 768px) {
+            body { font-size: 17px; }
+            .hero h2 { font-size: 34px; }
+            .hero p { font-size: 20px; }
+            .app-form { padding: 30px; }
+            .header-flex { flex-direction: column; text-align: center; gap: 10px; }
+            .section-padding { padding: 60px 0; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container header-flex">
+            <div class="logo">
+                <h1 data-lang="comp-name">Keiyo Hotel Service Co., Ltd.</h1>
+            </div>
+            <nav>
+                <a href="#home" data-lang="nav-home">Home</a>
+                <a href="#about" data-lang="nav-about">About Us</a>
+                <a href="#jobs" data-lang="nav-jobs">Job Details</a>
+                <a href="#apply" data-lang="nav-apply">Apply Now</a>
+            </nav>
+            <div class="lang-switcher">
+                <button onclick="switchLanguage('ja')" id="btn-ja">日本語</button>
+                <button onclick="switchLanguage('en')" id="btn-en" class="active">English</button>
+                <button onclick="switchLanguage('si')" id="btn-si">සිංහල</button>
+            </div>
+        </div>
+    </header>
+
+    <section id="home" class="hero">
+        <div class="container">
+            <h2 data-lang="hero-title">Professional Hotel Cleaning in Narita</h2>
+            <p data-lang="hero-sub">Providing top-tier cleaning services for premium local hotels since 1978. Join our dedicated team today.</p>
+            <a href="#jobs" class="cta-btn" data-lang="hero-cta">View Opportunities</a>
+            <div class="badges">
+                <span class="badge" data-lang="badge-1">No Experience Required</span>
+                <span class="badge" data-lang="badge-2">Ages 60+ Welcome</span>
+                <span class="badge" data-lang="badge-3">Part-Time / Casual Welcome</span>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="container section-padding about-section">
+        <h2 class="section-title" data-lang="about-title">About Keiyo Hotel Service</h2>
+        <div class="about-content">
+            <div class="about-text">
+                <p data-lang="about-p1">Keiyo Hotel Service Co., Ltd. is a dedicated company focused on professional cleaning and comprehensive building maintenance. Since our establishment in 1978, we have been committed to delivering high-quality sanitation services.</p>
+                <p data-lang="about-p2">Our primary area of operation is Narita City, Chiba Prefecture, specializing in keeping local premium hotels in pristine condition. We prioritize reliability, efficiency, and cleanliness in every job.</p>
+                <p data-lang="about-p3">Under the leadership of Representative Sanae Hasegawa, we have built a team that takes pride in ensuring guest satisfaction through immaculate room presentation. We are currently expanding and looking for dedicated individuals to join our professional maintenance team.</p>
+            </div>
+            <div class="about-image"></div>
+        </div>
+    </section>
+
+    <section id="jobs" class="job-section section-padding">
+        <div class="container">
+            <h2 class="section-title" data-lang="job-title">Job Opportunities</h2>
+            <div class="job-grid">
+                
+                <div class="job-card">
+                    <div class="job-img-h1"></div>
+                    <div class="job-card-content">
+                        <h3 data-lang="opt1-name">Option 1: Room Meister</h3>
+                        <div class="salary" data-lang="opt1-wage">Hourly Wage: 1,300 Yen</div>
+                        <div class="bonus-note" data-lang="bonus-text">*Performance bonus paid based on completed rooms. Details in interview.</div>
+                        <div class="job-details">
+                            <ul>
+                                <li data-lang="opt1-time"><strong>Hours:</strong> 10:00 - 17:00 (6 hours actual work)</li>
+                                <li data-lang="opt1-flex"><strong>Flexibility:</strong> Hours negotiable</li>
+                                <li data-lang="opt1-duty1">10:00 - 14:00 Room cleaning & bed making</li>
+                                <li data-lang="opt1-duty2">14:00 - 17:00 Checking finished rooms for quality</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="job-card">
+                    <div class="job-img-h2"></div>
+                    <div class="job-card-content">
+                        <h3 data-lang="opt2-name">Option 2: Room Cleaning Specialist</h3>
+                        <div class="salary" data-lang="opt2-wage">Hourly Wage: 1,140 Yen</div>
+                        <div class="bonus-note" data-lang="bonus-text">*Performance bonus paid based on completed rooms. Details in interview.</div>
+                        <div class="job-details">
+                            <ul>
+                                <li data-lang="opt2-time"><strong>Hours:</strong> 09:00 - 16:00 (6 hours actual work)</li>
+                                <li data-lang="opt2-flex"><strong>Flexibility:</strong> Hours negotiable</li>
+                                <li data-lang="opt2-duty1">Focus entirely on professional guest room cleaning</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section class="benefits-section section-padding">
+        <div class="container">
+            <div class="benefits-box">
+                <h2 class="section-title" data-lang="ben-title">Working Conditions & Benefits</h2>
+                <div class="benefits-grid">
+                    <div class="benefit-item">
+                        <strong data-lang="ben-1-h">Flexible Working Days</strong>
+                        <p data-lang="ben-1-p">Minimum 2 days a week (10 hours or more per week). Days & hours negotiable.</p>
+                    </div>
+                    <div class="benefit-item">
+                        <strong data-lang="ben-2-h">Social Insurance</strong>
+                        <p data-lang="ben-2-p">Available for individuals working 3+ days and 20+ hours per week.</p>
+                    </div>
+                    <div class="benefit-item">
+                        <strong data-lang="ben-3-h">Allowance & Insurance</strong>
+                        <p data-lang="ben-3-p">Transportation allowance provided for all employees. Comprehensive social security available based on conditions.</p>
+                    </div>
+                    <div class="benefit-item">
+                        <strong data-lang="ben-4-h">Seasonal Options</strong>
+                        <p data-lang="ben-4-p">Short-term seasonal workers welcome! (e.g., Year-End / New Year period only, or Summer only).</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="apply" class="form-section section-padding">
+        <div class="container">
+            <h2 class="section-title" data-lang="form-title">Join Our Team</h2>
+            <form class="app-form" id="applicationForm" onsubmit="handleFormSubmit(event)">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="fullName" data-lang="label-name">Full Name *</label>
+                        <input type="text" id="fullName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email" data-lang="label-email">Email Address *</label>
+                        <input type="email" id="email" required>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="phone" data-lang="label-phone">Phone Number *</label>
+                        <input type="tel" id="phone" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="residenceCard" data-lang="label-residence">Residence Card Number (For international) *</label>
+                        <input type="text" id="residenceCard" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="address" data-lang="label-address">Current Address in Japan *</label>
+                    <input type="text" id="address" required>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="position" data-lang="label-pos">Desired Position *</label>
+                        <select id="position" required>
+                            <option value="" disabled selected data-lang="label-select">Select a position...</option>
+                            <option value="Room Meister" data-lang="opt1-name">Option 1: Room Meister</option>
+                            <option value="Room Cleaning Specialist" data-lang="opt2-name">Option 2: Room Cleaning Specialist</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="resume" data-lang="label-file">Upload Resume / CV (PDF or Image) *</label>
+                        <input type="file" id="resume" accept="image/*, application/pdf" required>
+                        <div class="file-note" data-lang="file-note">Accepted files: PDF, PNG, JPG, JPEG</div>
+                    </div>
+                </div>
+                <button type="submit" class="submit-btn" data-lang="btn-submit">Submit Application</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container footer-grid">
+            <div class="footer-col">
+                <h3 data-lang="footer-details">Company Details</h3>
+                <p><strong><span data-lang="footer-cname">Company Name:</span></strong> Keiyo Hotel Service Co., Ltd.</p>
+                <p><strong><span data-lang="footer-est">Establishment:</span></strong> January 1978</p>
+                <p><strong><span data-lang="footer-rep">Representative:</span></strong> Sanae Hasegawa</p>
+                <p><strong><span data-lang="footer-biz">Business Details:</span></strong> Cleaning Business & Building Maintenance</p>
+            </div>
+            <div class="footer-col">
+                <h3 data-lang="footer-contact">Contact Office</h3>
+                <p><strong><span data-lang="footer-loc">Location:</span></strong> Main Office:<br>2F Narukeya Pottery Building, 569 Higashiwada, Narita City, Chiba Prefecture, 286-0134</p>
+                <p><strong>TEL:</strong> 0476-22-0770</p>
+                <p><strong>FAX:</strong> 0476-22-0784</p>
+                <p style="font-size: 15px; color: #cbd5e0;" data-lang="footer-hours">(Mon / Wed / Fri: 9:30 AM - 3:00 PM)</p>
+                <p><strong>Email:</strong> keiyo.hs.kk@gmail.com</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Keiyo Hotel Service Co., Ltd. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Language Database
+        const translations = {
+            en: {
+                "comp-name": "Keiyo Hotel Service Co., Ltd.",
+                "nav-home": "Home",
+                "nav-about": "About Us",
+                "nav-jobs": "Job Details",
+                "nav-apply": "Apply Now",
+                "hero-title": "Professional Hotel Cleaning in Narita",
+                "hero-sub": "Providing top-tier cleaning services for premium local hotels since 1978. Join our dedicated team today.",
+                "hero-cta": "View Opportunities",
+                "badge-1": "No Experience Required",
+                "badge-2": "Ages 60+ Welcome",
+                "badge-3": "Part-Time / Casual Welcome",
+                "about-title": "About Keiyo Hotel Service",
+                "about-p1": "Keiyo Hotel Service Co., Ltd. is a dedicated company focused on professional cleaning and comprehensive building maintenance. Since our establishment in 1978, we have been committed to delivering high-quality sanitation services.",
+                "about-p2": "Our primary area of operation is Narita City, Chiba Prefecture, specializing in keeping local premium hotels in pristine condition. We prioritize reliability, efficiency, and cleanliness in every job.",
+                "about-p3": "Under the leadership of Representative Sanae Hasegawa, we have built a team that takes pride in ensuring guest satisfaction through immaculate room presentation. We are currently expanding and looking for dedicated individuals to join our professional maintenance team.",
+                "job-title": "Job Opportunities",
+                "opt1-name": "Option 1: Room Meister",
+                "opt1-wage": "Hourly Wage: 1,300 Yen",
+                "bonus-text": "*Performance bonus paid based on completed rooms. Details in interview.",
+                "opt1-time": "<strong>Hours:</strong> 10:00 - 17:00 (6 hours actual work)",
+                "opt1-flex": "<strong>Flexibility:</strong> Hours negotiable",
+                "opt1-duty1": "10:00 - 14:00 Room cleaning & bed making",
+                "opt1-duty2": "14:00 - 17:00 Checking finished rooms for quality",
+                "opt2-name": "Option 2: Room Cleaning Specialist",
+                "opt2-wage": "Hourly Wage: 1,140 Yen",
+                "opt2-time": "<strong>Hours:</strong> 09:00 - 16:00 (6 hours actual work)",
+                "opt2-flex": "<strong>Flexibility:</strong> Hours negotiable",
+                "opt2-duty1": "Focus entirely on professional guest room cleaning",
+                "ben-title": "Working Conditions & Benefits",
+                "ben-1-h": "Flexible Working Days",
+                "ben-1-p": "Minimum 2 days a week (10 hours or more per week). Days & hours negotiable.",
+                "ben-2-h": "Social Insurance",
+                "ben-2-p": "Available for individuals working 3+ days and 20+ hours per week.",
+                "ben-3-h": "Allowance & Insurance",
+                "ben-3-p": "Transportation allowance provided for all employees. Comprehensive social security available based on conditions.",
+                "ben-4-h": "Seasonal Options",
+                "ben-4-p": "Short-term seasonal workers welcome! (e.g., Year-End / New Year period only, or Summer only).",
+                "form-title": "Join Our Team",
+                "label-name": "Full Name *",
+                "label-email": "Email Address *",
+                "label-phone": "Phone Number *",
+                "label-residence": "Residence Card Number (For international) *",
+                "label-address": "Current Address in Japan *",
+                "label-pos": "Desired Position *",
+                "label-select": "Select a position...",
+                "label-file": "Upload Resume / CV (PDF or Image) *",
+                "file-note": "Accepted files: PDF, PNG, JPG, JPEG",
+                "btn-submit": "Submit Application",
+                "footer-details": "Company Details",
+                "footer-cname": "Company Name:",
+                "footer-est": "Establishment:",
+                "footer-rep": "Representative:",
+                "footer-biz": "Business Details:",
+                "footer-contact": "Contact Office",
+                "footer-loc": "Location:",
+                "footer-hours": "(Mon / Wed / Fri: 9:30 AM - 3:00 PM)",
+                "alert-success": "Thank you for applying! We will contact you soon."
+            },
+            ja: {
+                "comp-name": "京葉ホテルサービス株式会社",
+                "nav-home": "ホーム",
+                "nav-about": "会社概要",
+                "nav-jobs": "募集職種",
+                "nav-apply": "応募する",
+                "hero-title": "成田でのプロフェッショナルなホテル清掃",
+                "hero-sub": "1978年の設立以来、地元のプレミアムホテルに最高レベルの清掃サービスを提供しています。私たちの専属チームに参加しませんか。",
+                "hero-cta": "募集職種を見る",
+                "badge-1": "未経験者歓迎",
+                "badge-2": "60歳以上の方も歓迎",
+                "badge-3": "パート・アルバイト歓迎",
+                "about-title": "京葉ホテルサービスについて",
+                "about-p1": "京葉ホテルサービス株式会社は、プロフェッショナルな清掃と総合的な建物メンテナンスに焦点を当てた専門企業です。1978年の設立以来、高品質な衛生サービスの提供に取り組んしてきました。",
+                "about-p2": "私たちの主な運営エリアは千葉県成田市で、地元のプレミアムホテルを常に清潔な状態に保つことに特化しています。すべての業務において、信頼性、効率性、清潔さを最優先しています。",
+                "about-p3": "代表者長谷川早苗の指導のもと、完璧な客室提供を通じてお客様の満足度を保証することに誇りを持つチームを構築しました。現在、事業拡大に伴い、私たちのプロフェッショナルなメンテナンスチームに参加していただける熱意ある方を募集しています。",
+                "job-title": "募集職種",
+                "opt1-name": "職種1: ルームマイスター",
+                "opt1-wage": "時給: 1,300円",
+                "bonus-text": "※室数手当（出来高）別途支給。詳細は面接にて説明します。",
+                "opt1-time": "<strong>勤務時間:</strong> 10:00 - 17:00 (実働6時間)",
+                "opt1-flex": "<strong>時間相談可能:</strong> 勤務時間は相談に応じます",
+                "opt1-duty1": "10:00 - 14:00 客室清掃（ベッドメイクなど）",
+                "opt1-duty2": "14:00 - 17:00 清掃仕上がり状態の確認・チェック業務",
+                "opt2-name": "職種2: 客室清掃専門スタッフ",
+                "opt2-wage": "時給: 1,140円",
+                "opt2-time": "<strong>勤務時間:</strong> 09:00 - 16:00 (実働6時間)",
+                "opt2-flex": "<strong>時間相談可能:</strong> 勤務時間は相談に応じます",
+                "opt2-duty1": "客室清掃業務に集中して取り組んでいただきます",
+                "ben-title": "雇用条件・福利厚生",
+                "ben-1-h": "柔軟な勤務日数",
+                "ben-1-p": "週2日以上（週10時間以上）から可能。勤務日数や曜日は自由に相談可能です。",
+                "ben-2-h": "社会保険完備",
+                "ben-2-p": "週3日以上かつ週20時間以上勤務できる方は社会保険への加入が可能です。",
+                "ben-3-h": "手当・各種保険",
+                "ben-3-p": "全従業員に交通費支給。勤務条件に応じて各種社会保険が適用されます。",
+                "ben-4-h": "季節限定勤務も歓迎",
+                "ben-4-p": "「年末年始のみ」や「夏休み期間のみ」といった短期・季節限定の働き方も大歓迎です！",
+                "form-title": "応募フォーム",
+                "label-name": "氏名 (フルネーム) *",
+                "label-email": "メールアドレス *",
+                "label-phone": "電話番号 *",
+                "label-residence": "在留カード番号 (外国籍の方) *",
+                "label-address": "日本での現住所 *",
+                "label-pos": "希望職種 *",
+                "label-select": "職種を選択してください...",
+                "label-file": "履歴書・CVのアップロード (PDF または 画像) *",
+                "file-note": "対応ファイル: PDF, PNG, JPG, JPEG",
+                "btn-submit": "応募する",
+                "footer-details": "会社概要",
+                "footer-cname": "会社名:",
+                "footer-est": "設立:",
+                "footer-rep": "代表者:",
+                "footer-biz": "事業内容:",
+                "footer-contact": "お問合せ窓口",
+                "footer-loc": "所在地:",
+                "footer-hours": "(月・水・金 9:30 - 15:00)",
+                "alert-success": "ご応募ありがとうございます！確認後、担当者よりご連絡いたします。"
+            },
+            si: {
+                "comp-name": "කෙයියෝ හොටෙල් සර්විස් සමාගම",
+                "nav-home": "මුල් පිටුව",
+                "nav-about": "අප ගැන",
+                "nav-jobs": "රැකියා විස්තර",
+                "nav-apply": "අයදුම් කරන්න",
+                "hero-title": "නරිටා හි වෘත්තීය හෝටල් පිරිසිදු කිරීම",
+                "hero-sub": "1978 සිට ප්‍රමුඛ පෙළේ දේශීය හෝටල් සඳහා ඉහළම මට්ටමේ පිරිසිදු කිරීමේ සේවාවන් සපයයි. අපගේ කැපවූ කණ්ඩායමට අදම එකතු වන්න.",
+                "hero-cta": "ඇබෑර්තු බලන්න",
+                "badge-1": "පළපුරුද්ද අවශ්‍ය නොවේ",
+                "badge-2": "වයස 60+ අයටද අයදුම් කල හැක",
+                "badge-3": "කාලීන/අර්ධකාලීන සේවකයින් සාදරයෙන් පිළිගනිමු",
+                "about-title": "කෙයියෝ හොටෙල් සර්විස් ගැන",
+                "about-p1": "කෙයියෝ හොටෙල් සර්විස් Co., Ltd. යනු වෘත්තීය පිරිසිදු කිරීම සහ පුළුල් ගොඩනැගිලි නඩත්තුව සඳහා කැප වූ සමාගමකි. 1978 අපගේ පිහිටුවීමේ සිට, උසස් තත්ත්වයේ සනීපාරක්ෂක සේවාවන් සැපයීමට අපි කැපවී සිටිමු.",
+                "about-p2": "අපගේ මූලික මෙහෙයුම් ප්‍රදේශය චීබා ප්‍රාන්තයේ නරිටා නගරය වන අතර, දේශීය ප්‍රමුඛ පෙළේ හෝටල් පිරිසිදු තත්වයෙන් තබා ගැනීමට විශේෂීකරණය වේ. අපි සෑම කාර්යයකදීම විශ්වාසදායක බව,කාර්යක්ෂමතාව සහ පිරිසිදුකමට ප්‍රමුඛතාවය දෙන්නෙමු.",
+                "about-p3": "නියෝජිත සනායි හසේගවාගේ නායකත්වය යටතේ, පිරිසිදු කාමර ඉදිරිපත් කිරීම හරහා අමුත්තන්ගේ තෘප්තිය සහතික කිරීමට ආඩම්බර වන කණ්ඩායමක් අපි ගොඩනඟා ඇත්තෙමු. අපි දැනට ව්‍යාප්ත වෙමින් පවතින අතර අපගේ වෘත්තීය නඩත්තු කණ්ඩායමට එකතු වීමට කැපවූ පුද්ගලයින් සොයමින් සිටිමු.",
+                "job-title": "පවතින රැකියා අවස්ථා",
+                "opt1-name": "විකල්පය 1: ರೂම් මේස්ටර් (Room Meister)",
+                "opt1-wage": "පැයකට වැටුප: යෙන් 1,300",
+                "bonus-text": "*කාමර නිම කිරීමේ ප්‍රමාණය මත ප්‍රසාද දීමනා (Bonus) හිමිවේ. විස්තර සම්මුඛ පරීක්ෂණයේදී.",
+                "opt1-time": "<strong>කාලය:</strong> 10:00 - 17:00 (වැඩ කරන සැබෑ කාලය පැය 6)",
+                "opt1-flex": "<strong>නම්‍යශීලී බව:</strong> වේලාවන් සාකච්ඡා කරගත හැක",
+                "opt1-duty1": "10:00 - 14:00 කාමර පිරිසිදු කිරීම සහ ඇඳන් සකස් කිරීම",
+                "opt1-duty2": "14:00 - 17:00 නිම කරන ලද කාමරවල ගුණාත්මකභාවය පරීක්ෂා කිරීම",
+                "opt2-name": "විකල්පය 2: කාමර පිරිසිදු කිරීමේ විශේෂඥ",
+                "opt2-wage": "පැයකට වැටුප: යෙන් 1,140",
+                "opt2-time": "<strong>කාලය:</strong> 09:00 - 16:00 (වැඩ කරන සැබෑ කාලය පැය 6)",
+                "opt2-flex": "<strong>නම්‍යශීලී බව:</strong> වේලාවන් සාකච්ඡා කරගත හැක",
+                "opt2-duty1": "ආගන්තුක කාමර වෘත්තීයමය ලෙස පිරිසිදු කිරීම පමණක් සිදු කෙරේ",
+                "ben-title": "සේවා කොන්දේසි සහ ප්‍රතිලාභ",
+                "ben-1-h": "නම්‍යශීලී වැඩ කරන දින",
+                "ben-1-p": "සතියකට අවම වශයෙන් දින 2ක් (සතියකට පැය 10ක් හෝ වැඩි ගණනක්). දින සහ වේලාවන් සාකච්ඡා කරගත හැක.",
+                "ben-2-h": "සමාජ රක්ෂණය (Social Insurance)",
+                "ben-2-p": "සතියකට දින 3+ සහ පැය 20+ වැඩ කරන පුද්ගලයින් සඳහා ලබා ගත හැකිය.",
+                "ben-3-h": "ප්‍රවාහන දීමනා සහ රක්ෂණ",
+                "ben-3-p": "සියලුම සේවකයින් සඳහා ප්‍රවාහන දීමනා ලබා දේ. කොන්දේසි මත පදනම්ව පුළුල් සමාජ ආරක්ෂණ ප්‍රතිලාභ.",
+                "ben-4-h": "කාලීන රැකියා අවස්ථා",
+                "ben-4-p": "කෙටි කාලීන සේවකයින් සාදරයෙන් පිළිගනිමු! (උදා: වසර අවසාන / අලුත් අවුරුදු කාලය හෝ ගිම්හාන කාලය පමණක්).",
+                "form-title": "අයදුම්පත",
+                "label-name": "සම්පූර්ණ නම *",
+                "label-email": "විද්‍යුත් තැපෑල (Email) *",
+                "label-phone": "දුරකථන අංකය *",
+                "label-residence": "රෙසිඩන්ස් කාඩ් අංකය (විදේශිකයන් සඳහා) *",
+                "label-address": "ජපානයේ වත්මන් ලිපිනය *",
+                "label-pos": "අවශ්‍ය තනතුර *",
+                "label-select": "තනතුරක් තෝරන්න...",
+                "label-file": "CV/Resume එකක් අප්ලෝඩ් කරන්න (PDF හෝ රූපයක්) *",
+                "file-note": "අනුමත ලිපිගොනු: PDF, PNG, JPG, JPEG",
+                "btn-submit": "ඉදිරිපත් කරන්න",
+                "footer-details": "සමාගමේ විස්තර",
+                "footer-cname": "සමාගමේ නම:",
+                "footer-est": "ආරම්භය:",
+                "footer-rep": "නියෝජිතයා:",
+                "footer-biz": "ව්‍යාපාරික විස්තර:",
+                "footer-contact": "සම්බන්ධීකරණ කාර්යාලය",
+                "footer-loc": "ලිපිනය:",
+                "footer-hours": "(සඳුදා / බදාදා / සිකුරාදා: පෙ.ව. 9:30 - ප.ව. 3:00)",
+                "alert-success": "අයදුම් කළාට ස්තුතියි! අපි ළඟදීම ඔබව සම්බන්ධ කර ගන්නෙමු."
+            }
+        };
+
+        let currentLang = 'en';
+
+        // Language Switch Logic
+        function switchLanguage(lang) {
+            currentLang = lang;
+            
+            document.getElementById('btn-ja').classList.remove('active');
+            document.getElementById('btn-en').classList.remove('active');
+            document.getElementById('btn-si').classList.remove('active');
+            document.getElementById(`btn-${lang}`).classList.add('active');
+
+            const elements = document.querySelectorAll('[data-lang]');
+            elements.forEach(el => {
+                const key = el.getAttribute('data-lang');
+                if (translations[lang][key]) {
+                    if (el.innerHTML.includes('<strong>') || el.innerHTML.includes('<span>') || el.tagName === 'P') {
+                        el.innerHTML = translations[lang][key];
+                    } else {
+                        el.textContent = translations[lang][key];
+                    }
+                }
+            });
+        }
+
+        // Form Submit Handling
+        function handleFormSubmit(event) {
+            event.preventDefault();
+            alert(translations[currentLang]["alert-success"]);
+            document.getElementById('applicationForm').reset();
+        }
+    </script>
+</body>
+</html>
